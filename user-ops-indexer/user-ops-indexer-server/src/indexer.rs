@@ -79,9 +79,7 @@ async fn start_indexer_with_retries<L: IndexerLogic + Sync + Clone + Send + 'sta
 
                     tracing::error!(
                         settings.rpc_url,
-                        db_connection.clone(),
-                        settings.clone(),
-                        logic.clone(),
+                        settings.database_url,
                         "indexer stream ended with error, retrying ...2"
                     );
                 }
