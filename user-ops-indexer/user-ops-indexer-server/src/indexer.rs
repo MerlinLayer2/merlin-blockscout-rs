@@ -77,11 +77,14 @@ async fn start_indexer_with_retries<L: IndexerLogic + Sync + Clone + Send + 'sta
                         "indexer stream ended with error, retrying"
                     );
 
-                    tracing::error!(
-                        settings.rpc_url,
-                        settings.database_url,
-                        "indexer stream ended with error, retrying ...2"
-                    );
+//                     tracing::error!(
+//                         settings.rpc_url,
+//                         settings.database_url,
+//                         "indexer stream ended with error, retrying ...2"
+//                     );
+
+                    println!("...rpc_url is {:?}", settings.rpc_url);
+                    println!("...database_url is {:?}", settings.database_url);
                 }
                 Ok(_) => {
                     if !settings.realtime.enabled {
