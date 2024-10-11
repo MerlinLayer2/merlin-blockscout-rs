@@ -84,7 +84,7 @@ async fn start_indexer_with_retries<L: IndexerLogic + Sync + Clone + Send + 'sta
 //                     );
 
                     println!("...rpc_url is {:?}", settings.rpc_url);
-                    println!("...database_url is {:?}", settings.database_url);
+                    println!("...settings is {:?}", settings);
                 }
                 Ok(_) => {
                     if !settings.realtime.enabled {
