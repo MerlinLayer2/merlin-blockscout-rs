@@ -66,6 +66,9 @@ async fn start_indexer_with_retries<L: IndexerLogic + Sync + Clone + Send + 'sta
 
     let delay = settings.restart_delay;
 
+    println!("...rpc_url is {:?}", settings.rpc_url);
+    println!("...settings is {:?}", settings);
+
     tokio::spawn(async move {
         loop {
             match indexer.start().await {
@@ -82,9 +85,6 @@ async fn start_indexer_with_retries<L: IndexerLogic + Sync + Clone + Send + 'sta
 //                         settings.database_url,
 //                         "indexer stream ended with error, retrying ...2"
 //                     );
-
-                    println!("...rpc_url is {:?}", settings.rpc_url);
-                    println!("...settings is {:?}", settings);
                 }
                 Ok(_) => {
                     if !settings.realtime.enabled {
